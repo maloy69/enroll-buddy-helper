@@ -1,7 +1,7 @@
 [
-  {"capability": "app code (TanStack Start SPMB/PPDB enrollment app)", "source": "github repo pal-enroll-buddy", "outcome": "migrated", "status": "implemented", "next_action": "verify build and routes"},
-  {"capability": "database schema (9 tables, RLS, triggers, storage policies, seed data)", "source": "supabase/migrations + drizzle 0002/0003", "outcome": "migrated", "status": "pending", "next_action": "apply migrations to Lovable Cloud"},
-  {"capability": "auth (email/password + Google)", "source": "Lovable Cloud auth", "outcome": "preserved", "status": "pending", "next_action": "enable email auth and Google provider"},
-  {"capability": "document uploads (private 'dokumen' bucket)", "source": "storage policies in migration", "outcome": "preserved", "status": "pending", "next_action": "create private bucket"},
-  {"capability": "existing user accounts and registrations", "source": "not exported from old project", "outcome": "deferred", "status": "blocked", "next_action": "request CSV/JSON data export from user after preview"}
+  {"capability": "app code (TanStack Start SPMB/PPDB enrollment app)", "source": "github repo pal-enroll-buddy", "outcome": "migrated", "status": "verified", "next_action": "none"},
+  {"capability": "database schema (9 tables, RLS, triggers, storage policies, seed data)", "source": "supabase/migrations + drizzle 0002/0003", "outcome": "migrated", "status": "verified", "next_action": "none"},
+  {"capability": "auth (email/password + Google)", "source": "Lovable Cloud auth", "outcome": "preserved", "status": "implemented", "next_action": "verification blocked until a real user signs in"},
+  {"capability": "document uploads (private 'dokumen' bucket)", "source": "storage policies in migration", "outcome": "preserved", "status": "verified", "next_action": "none"},
+  {"capability": "existing user accounts and registrations", "source": "not exported from old project", "outcome": "deferred", "status": "blocked", "next_action": "request CSV/JSON data export from user"}
 ]
