@@ -36,6 +36,13 @@
       "when": 1789185836691,
       "tag": "0004_major_min_scores",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1789185875744,
+      "tag": "0005_major_criteria_links",
+      "breakpoints": true
     }
   ]
 }
