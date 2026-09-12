@@ -142,11 +142,7 @@ export type Database = {
           code: string
           created_at: string
           description: string | null
-          diploma_criteria_id: string | null
-          exam_criteria_id: string | null
           id: string
-          min_diploma_score: number
-          min_exam_score: number
           name: string
           quota: number
           updated_at: string
@@ -156,11 +152,7 @@ export type Database = {
           code: string
           created_at?: string
           description?: string | null
-          diploma_criteria_id?: string | null
-          exam_criteria_id?: string | null
           id?: string
-          min_diploma_score?: number
-          min_exam_score?: number
           name: string
           quota?: number
           updated_at?: string
@@ -170,31 +162,12 @@ export type Database = {
           code?: string
           created_at?: string
           description?: string | null
-          diploma_criteria_id?: string | null
-          exam_criteria_id?: string | null
           id?: string
-          min_diploma_score?: number
-          min_exam_score?: number
           name?: string
           quota?: number
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "majors_diploma_criteria_id_fkey"
-            columns: ["diploma_criteria_id"]
-            isOneToOne: false
-            referencedRelation: "criteria"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "majors_exam_criteria_id_fkey"
-            columns: ["exam_criteria_id"]
-            isOneToOne: false
-            referencedRelation: "criteria"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       profiles: {
         Row: {
@@ -486,7 +459,6 @@ export type Database = {
       }
     }
     Functions: {
-      claim_first_operator: { Args: never; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -495,10 +467,6 @@ export type Database = {
         Returns: boolean
       }
       is_staff: { Args: { _user_id: string }; Returns: boolean }
-      recalc_total_score: {
-        Args: { _registration_id: string }
-        Returns: undefined
-      }
       run_selection: { Args: never; Returns: number }
     }
     Enums: {
