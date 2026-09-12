@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1789185751616,
+      "tag": "0000_init_spmb_schema",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789185785754,
+      "tag": "0001_claim_first_operator",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789185799014,
+      "tag": "0002_role_helper_grants",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1789185811043,
+      "tag": "0003_auto_submit_documents",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1789185836691,
+      "tag": "0004_major_min_scores",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1789185875744,
+      "tag": "0005_major_criteria_links",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1789185919310,
+      "tag": "0006_selection_quota_second_choice",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1789185932162,
+      "tag": "0007_auto_recalc_total_score",
+      "breakpoints": true
+    }
+  ]
+}
