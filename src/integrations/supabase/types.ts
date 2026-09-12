@@ -143,6 +143,8 @@ export type Database = {
           created_at: string
           description: string | null
           id: string
+          min_diploma_score: number
+          min_exam_score: number
           name: string
           quota: number
           updated_at: string
@@ -153,6 +155,8 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
+          min_diploma_score?: number
+          min_exam_score?: number
           name: string
           quota?: number
           updated_at?: string
@@ -163,6 +167,8 @@ export type Database = {
           created_at?: string
           description?: string | null
           id?: string
+          min_diploma_score?: number
+          min_exam_score?: number
           name?: string
           quota?: number
           updated_at?: string
@@ -459,6 +465,7 @@ export type Database = {
       }
     }
     Functions: {
+      claim_first_operator: { Args: never; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]

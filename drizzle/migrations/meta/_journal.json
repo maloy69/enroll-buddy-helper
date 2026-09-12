@@ -8,6 +8,34 @@
       "when": 1789185751616,
       "tag": "0000_init_spmb_schema",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789185785754,
+      "tag": "0001_claim_first_operator",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789185799014,
+      "tag": "0002_role_helper_grants",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1789185811043,
+      "tag": "0003_auto_submit_documents",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1789185836691,
+      "tag": "0004_major_min_scores",
+      "breakpoints": true
     }
   ]
 }
