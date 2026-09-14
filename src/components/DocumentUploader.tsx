@@ -18,7 +18,7 @@ export type DocRow = {
   note: string | null;
 };
 
-const MAX_BYTES = 2 * 1024 * 1024;
+const MAX_BYTES = 5 * 1024 * 1024;
 const STATUS_TEXT = {
   pending: "Menunggu verifikasi",
   approved: "Disetujui",
@@ -35,7 +35,7 @@ export const TIPE_DIIZINKAN = [
   "image/tif",
 ];
 export const ACCEPT_ATTR = ".pdf,.png,.jpg,.jpeg,.tif,.tiff,application/pdf,image/png,image/jpeg,image/tiff";
-export const TEKS_FORMAT = "PDF, PNG, JPG, TIFF — maks. 2 MB · foto otomatis dikecilkan (WebP)";
+export const TEKS_FORMAT = "PDF, PNG, JPG, TIFF — maks. 5 MB · foto otomatis dikecilkan (WebP)";
 
 function cocokFormat(file: File) {
   if (TIPE_DIIZINKAN.includes(file.type.toLowerCase())) return true;
@@ -141,7 +141,7 @@ export function DocumentUploader({
     const siap = await keWebp(file);
     if (siap.size > MAX_BYTES) {
       toast.error(
-        `Ukuran berkas maksimal 2 MB (berkas Anda ${formatBytes(siap.size)}). Lihat panduan unggah di atas.`,
+        `Ukuran berkas maksimal 5 MB (berkas Anda ${formatBytes(siap.size)}). Lihat panduan unggah di atas.`,
       );
       return;
     }

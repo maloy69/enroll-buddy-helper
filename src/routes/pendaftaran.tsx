@@ -112,7 +112,7 @@ const GUEST_TOUR_STEPS: TourStep[] = [
   {
     selector: '[data-tour="panduan"]',
     title: "Baca panduan dulu",
-    body: "Panel ini merangkum dokumen yang harus disiapkan, format yang diterima (PDF, PNG, JPG, TIFF), dan ukuran maksimal 2 MB per berkas.",
+    body: "Panel ini merangkum dokumen yang harus disiapkan, format yang diterima (PDF, PNG, JPG, TIFF), dan ukuran maksimal 5 MB per berkas.",
   },
   {
     selector: '[data-tour="contoh-kartu"]',
@@ -352,7 +352,8 @@ function PendaftaranPage() {
   }, [step, user, reg]);
 
   const buka = pendaftaranDibuka(settings);
-  const terkunci = !!reg && reg.status !== "draft";
+  const terkunci = !!reg && reg.status !== "draft" && reg.status !== "submitted";
+  const bisaDiperbaiki = !!reg && reg.status === "submitted";
 
   const set = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -567,7 +568,7 @@ function PendaftaranPage() {
           </p>
         </div>
         <div className="rounded-lg border bg-card p-3">
-          <p className="font-medium">Ukuran maksimal 2 MB per berkas</p>
+          <p className="font-medium">Ukuran maksimal 5 MB per berkas</p>
           <p className="mt-1 text-muted-foreground">
             Foto otomatis dikecilkan menjadi WebP kualitas 50%, jadi hasil foto HP hampir selalu
             bisa diunggah tanpa perlu mengecilkan sendiri.
@@ -675,6 +676,13 @@ function PendaftaranPage() {
       </div>
 
 
+
+      {bisaDiperbaiki && (
+        <p className="mt-4 rounded-lg border border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
+          Formulir Anda sudah terkirim. Data dan berkas masih bisa diubah sampai operator
+          memverifikasi pendaftaran Anda.
+        </p>
+      )}
 
       <div className="mt-8 space-y-5 rounded-xl border bg-card p-5 md:p-6">
         {step === 0 && (
