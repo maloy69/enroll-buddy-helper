@@ -107,6 +107,7 @@ export default function BoomerangVideoBg({ src, poster, className }: Props) {
     if (frames.length === 0) return;
 
     const first = frames[0];
+    if (!first) return;
     canvas.width = first.width;
     canvas.height = first.height;
 
