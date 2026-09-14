@@ -352,7 +352,8 @@ function PendaftaranPage() {
   }, [step, user, reg]);
 
   const buka = pendaftaranDibuka(settings);
-  const terkunci = !!reg && reg.status !== "draft";
+  const terkunci = !!reg && reg.status !== "draft" && reg.status !== "submitted";
+  const bisaDiperbaiki = !!reg && reg.status === "submitted";
 
   const set = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
