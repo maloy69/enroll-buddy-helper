@@ -677,6 +677,13 @@ function PendaftaranPage() {
 
 
 
+      {bisaDiperbaiki && (
+        <p className="mt-4 rounded-lg border border-primary/30 bg-primary/5 p-3 text-xs text-muted-foreground">
+          Formulir Anda sudah terkirim. Data dan berkas masih bisa diubah sampai operator
+          memverifikasi pendaftaran Anda.
+        </p>
+      )}
+
       <div className="mt-8 space-y-5 rounded-xl border bg-card p-5 md:p-6">
         {step === 0 && (
           <div className="grid gap-5 sm:grid-cols-2">
