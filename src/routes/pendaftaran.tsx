@@ -967,6 +967,7 @@ function PendaftaranPage() {
                 ["Alamat", form["address"]],
                 ["Kecamatan / Kota", `${form["district"] ?? "-"} / ${form["city"] ?? "-"}`],
                 ["Asal sekolah", form["previous_school"]],
+                ["NPSN", form["npsn"]],
                 ["Orang tua/wali", form["parent_name"]],
                 ["Nomor HP", form["parent_phone"]],
                 ["Pilihan pertama", namaJurusan(form["first_choice_id"])],

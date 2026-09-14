@@ -32,6 +32,7 @@ const KOSONG: RegForm = {
   province: "",
   postal_code: "",
   previous_school: "",
+  npsn: "",
   graduation_year: "",
   parent_name: "",
   parent_phone: "",
