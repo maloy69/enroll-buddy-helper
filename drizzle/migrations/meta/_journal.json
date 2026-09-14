@@ -57,6 +57,13 @@
       "when": 1789185932162,
       "tag": "0007_auto_recalc_total_score",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1789394854393,
+      "tag": "0008_create_wilayah",
+      "breakpoints": true
     }
   ]
 }
