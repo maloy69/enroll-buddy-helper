@@ -384,6 +384,8 @@ function PendaftaranPage() {
     }
     if (s === 2) {
       wajib("previous_school", "Asal sekolah");
+      if (!/^\d{8}$/.test((form["npsn"] ?? "").trim()))
+        e["npsn"] = "NPSN wajib diisi, 8 digit angka.";
       wajib("parent_name", "Nama orang tua/wali");
       if (!/^0\d{8,13}$/.test((form["parent_phone"] ?? "").replace(/[\s-]/g, "")))
         e["parent_phone"] = "Nomor HP harus diawali 0 dan 9-14 digit.";
@@ -412,6 +414,7 @@ function PendaftaranPage() {
     ["address", "village", "district", "city", "province", "postal_code"],
     [
       "previous_school",
+      "npsn",
       "graduation_year",
       "parent_name",
       "parent_phone",
