@@ -112,7 +112,7 @@ const GUEST_TOUR_STEPS: TourStep[] = [
   {
     selector: '[data-tour="panduan"]',
     title: "Baca panduan dulu",
-    body: "Panel ini merangkum dokumen yang harus disiapkan, format yang diterima (PDF, PNG, JPG, TIFF), dan ukuran maksimal 2 MB per berkas.",
+    body: "Panel ini merangkum dokumen yang harus disiapkan, format yang diterima (PDF, PNG, JPG, TIFF), dan ukuran maksimal 5 MB per berkas.",
   },
   {
     selector: '[data-tour="contoh-kartu"]',
@@ -568,7 +568,7 @@ function PendaftaranPage() {
           </p>
         </div>
         <div className="rounded-lg border bg-card p-3">
-          <p className="font-medium">Ukuran maksimal 2 MB per berkas</p>
+          <p className="font-medium">Ukuran maksimal 5 MB per berkas</p>
           <p className="mt-1 text-muted-foreground">
             Foto otomatis dikecilkan menjadi WebP kualitas 50%, jadi hasil foto HP hampir selalu
             bisa diunggah tanpa perlu mengecilkan sendiri.

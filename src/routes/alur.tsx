@@ -32,7 +32,7 @@ const LANGKAH = [
   },
   {
     t: "Unggah dokumen",
-    d: "Format PDF, PNG, atau JPG maksimal 2 MB per berkas. Gambar besar otomatis dikompres tanpa mengurangi keterbacaan.",
+    d: "Format PDF, PNG, atau JPG maksimal 5 MB per berkas. Gambar besar otomatis dikompres tanpa mengurangi keterbacaan.",
   },
   {
     t: "Verifikasi operator",
