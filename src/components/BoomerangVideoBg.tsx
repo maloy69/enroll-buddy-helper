@@ -120,7 +120,8 @@ export default function BoomerangVideoBg({ src, poster, className }: Props) {
     const render = (now: number) => {
       if (now - last >= interval) {
         last = now;
-        ctx.drawImage(frames[index], 0, 0);
+        const frame = frames[index];
+        if (frame) ctx.drawImage(frame, 0, 0);
         index += direction;
         if (index >= frames.length - 1) {
           index = frames.length - 1;
