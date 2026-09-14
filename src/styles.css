@@ -59,6 +59,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-ink-hover: var(--hero-ink-hover);
+  --color-hero-accent: var(--hero-accent);
+  --color-hero-cta: var(--hero-cta);
+  --color-hero-cta-hover: var(--hero-cta-hover);
 }
 
 :root {
