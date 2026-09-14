@@ -31,6 +31,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { DocumentUploader, type DocRow } from "@/components/DocumentUploader";
 import { DocGuideTour, type TourStep } from "@/components/DocGuideTour";
+import { WilayahCascade } from "@/components/WilayahCascade";
 
 export const Route = createFileRoute("/pendaftaran")({
   ssr: false,
