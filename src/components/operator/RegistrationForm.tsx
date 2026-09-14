@@ -32,6 +32,7 @@ const KOSONG: RegForm = {
   province: "",
   postal_code: "",
   previous_school: "",
+  npsn: "",
   graduation_year: "",
   parent_name: "",
   parent_phone: "",
@@ -202,6 +203,14 @@ export function RegistrationForm({
             <Input
               value={form["previous_school"] ?? ""}
               onChange={(e) => set("previous_school", e.target.value)}
+            />
+          </Field>
+          <Field label="NPSN sekolah asal">
+            <Input
+              value={form["npsn"] ?? ""}
+              onChange={(e) => set("npsn", e.target.value.replace(/\D/g, "").slice(0, 8))}
+              inputMode="numeric"
+              placeholder="8 digit"
             />
           </Field>
           <Field label="Tahun lulus">

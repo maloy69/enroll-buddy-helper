@@ -384,6 +384,8 @@ function PendaftaranPage() {
     }
     if (s === 2) {
       wajib("previous_school", "Asal sekolah");
+      if (!/^\d{8}$/.test((form["npsn"] ?? "").trim()))
+        e["npsn"] = "NPSN wajib diisi, 8 digit angka.";
       wajib("parent_name", "Nama orang tua/wali");
       if (!/^0\d{8,13}$/.test((form["parent_phone"] ?? "").replace(/[\s-]/g, "")))
         e["parent_phone"] = "Nomor HP harus diawali 0 dan 9-14 digit.";
@@ -412,6 +414,7 @@ function PendaftaranPage() {
     ["address", "village", "district", "city", "province", "postal_code"],
     [
       "previous_school",
+      "npsn",
       "graduation_year",
       "parent_name",
       "parent_phone",
@@ -789,6 +792,17 @@ function PendaftaranPage() {
                 placeholder="Nama sekolah sebelumnya"
               />
             </Field>
+            <Field label="NPSN sekolah asal" error={errors["npsn"]}>
+              <Input
+                value={form["npsn"] ?? ""}
+                onChange={(e) => set("npsn", e.target.value.replace(/\D/g, "").slice(0, 8))}
+                inputMode="numeric"
+                placeholder="8 digit, contoh 20326789"
+              />
+              <p className="mt-1 text-xs text-muted-foreground">
+                NPSN tertera di rapor/ijazah SMP, MTs, SMA, SMK, atau MA asal.
+              </p>
+            </Field>
             <Field label="Tahun lulus (opsional)">
               <Input
                 value={form["graduation_year"] ?? ""}
@@ -953,6 +967,7 @@ function PendaftaranPage() {
                 ["Alamat", form["address"]],
                 ["Kecamatan / Kota", `${form["district"] ?? "-"} / ${form["city"] ?? "-"}`],
                 ["Asal sekolah", form["previous_school"]],
+                ["NPSN", form["npsn"]],
                 ["Orang tua/wali", form["parent_name"]],
                 ["Nomor HP", form["parent_phone"]],
                 ["Pilihan pertama", namaJurusan(form["first_choice_id"])],

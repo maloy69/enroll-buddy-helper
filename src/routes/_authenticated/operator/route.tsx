@@ -12,6 +12,7 @@ export const Route = createFileRoute("/_authenticated/operator")({
 
 const TAB = [
   { to: "/operator/ringkasan", label: "Ringkasan", exact: false },
+  { to: "/operator/dashboard", label: "Dashboard Jurusan", exact: false },
   { to: "/operator", label: "Pendaftar", exact: true },
   { to: "/operator/dokumen", label: "Dokumen", exact: false },
   { to: "/operator/seleksi", label: "Seleksi & Peringkat", exact: false },
