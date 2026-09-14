@@ -59,77 +59,11 @@ function Beranda() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b bg-gradient-to-br from-primary/10 via-background to-accent/20">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <motion.img
-              src={logoSekolah}
-              alt="Logo SMK Muhammadiyah 1 Paguyangan"
-              width={72}
-              height={72}
-              className="mb-4 size-18 object-contain"
-              initial={{ opacity: 0, scale: 0.7, rotate: -10 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            />
-            <Badge variant={buka ? "default" : "secondary"} className="mb-4">
-              {buka ? "Pendaftaran sedang dibuka" : "Pendaftaran belum dibuka"}
-            </Badge>
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
-              Pendaftaran Murid Baru {settings?.academic_year ?? ""}
-            </h1>
-            <p className="mt-2 text-lg font-semibold text-primary">
-              {settings?.school_name ?? "SMK Muhammadiyah 1 Paguyangan"}
-            </p>
-            <p className="mt-4 max-w-lg text-base text-muted-foreground md:text-lg">
-              Satu akun untuk semua proses: isi formulir bertahap, unggah dokumen, pantau hasil
-              seleksi, sampai cetak kartu peserta. Semua bisa dikerjakan dari rumah.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild size="lg">
-                <Link to="/pendaftaran">
-                  Mulai Pendaftaran <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/alur">Lihat Alur Pendaftaran</Link>
-              </Button>
-            </div>
-            <dl className="mt-9 grid max-w-md grid-cols-3 gap-4">
-              <div>
-                <dt className="text-xs text-muted-foreground">Jurusan</dt>
-                <dd className="text-2xl font-bold">{majors?.length ?? "-"}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-muted-foreground">Total kuota</dt>
-                <dd className="text-2xl font-bold">{totalKuota || "-"}</dd>
-              </div>
-              <div>
-                <dt className="text-xs text-muted-foreground">Biaya formulir</dt>
-                <dd className="text-2xl font-bold">Gratis</dd>
-              </div>
-            </dl>
-          </motion.div>
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          >
-            <img
-              src={heroImg}
-              alt="Calon murid baru berseragam di halaman sekolah"
-              width={1600}
-              height={1000}
-              className="w-full rounded-2xl border object-cover shadow-xl"
-            />
-          </motion.div>
-        </div>
-      </section>
+      <HeroSpmb
+        schoolName={settings?.school_name ?? "SMK Muhammadiyah 1 Paguyangan"}
+        academicYear={settings?.academic_year ?? ""}
+        buka={buka}
+      />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <h2 className="text-2xl font-bold">Jadwal Penting</h2>
