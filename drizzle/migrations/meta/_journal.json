@@ -71,6 +71,13 @@
       "when": 1789396012943,
       "tag": "0009_add_npsn_to_registrations",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1789396389193,
+      "tag": "0010_allow_edit_until_verified",
+      "breakpoints": true
     }
   ]
 }
