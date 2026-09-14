@@ -963,7 +963,7 @@ function PendaftaranPage() {
             <div>
               <h2 className="font-semibold">Periksa kembali data Anda</h2>
               <p className="text-sm text-muted-foreground">
-                Setelah dikirim, formulir tidak dapat diubah kecuali operator meminta perbaikan.
+                Setelah dikirim, data masih bisa diperbaiki sampai operator memverifikasi.
               </p>
             </div>
             <dl className="grid gap-3 text-sm sm:grid-cols-2">
