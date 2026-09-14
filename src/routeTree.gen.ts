@@ -22,6 +22,7 @@ import { Route as AuthenticatedOperatorRouteRouteImport } from './routes/_authen
 import { Route as AuthenticatedPendaftaranSayaRouteImport } from './routes/_authenticated/pendaftaran-saya'
 import { Route as AuthenticatedOperatorIndexRouteImport } from './routes/_authenticated/operator/index'
 import { Route as AuthenticatedOperatorAuditRouteImport } from './routes/_authenticated/operator/audit'
+import { Route as AuthenticatedOperatorDashboardRouteImport } from './routes/_authenticated/operator/dashboard'
 import { Route as AuthenticatedOperatorDokumenRouteImport } from './routes/_authenticated/operator/dokumen'
 import { Route as AuthenticatedOperatorHasilRouteImport } from './routes/_authenticated/operator/hasil'
 import { Route as AuthenticatedOperatorNilaiMinimalRouteImport } from './routes/_authenticated/operator/nilai-minimal'
@@ -98,6 +99,12 @@ const AuthenticatedOperatorAuditRoute =
     path: '/audit',
     getParentRoute: () => AuthenticatedOperatorRouteRoute,
   } as any)
+const AuthenticatedOperatorDashboardRoute =
+  AuthenticatedOperatorDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedOperatorRouteRoute,
+  } as any)
 const AuthenticatedOperatorDokumenRoute =
   AuthenticatedOperatorDokumenRouteImport.update({
     id: '/dokumen',
@@ -153,6 +160,7 @@ export interface FileRoutesByFullPath {
   '/kartu': typeof AuthenticatedKartuRoute
   '/pendaftaran-saya': typeof AuthenticatedPendaftaranSayaRoute
   '/operator/audit': typeof AuthenticatedOperatorAuditRoute
+  '/operator/dashboard': typeof AuthenticatedOperatorDashboardRoute
   '/operator/dokumen': typeof AuthenticatedOperatorDokumenRoute
   '/operator/hasil': typeof AuthenticatedOperatorHasilRoute
   '/operator/nilai-minimal': typeof AuthenticatedOperatorNilaiMinimalRoute
@@ -173,6 +181,7 @@ export interface FileRoutesByTo {
   '/kartu': typeof AuthenticatedKartuRoute
   '/pendaftaran-saya': typeof AuthenticatedPendaftaranSayaRoute
   '/operator/audit': typeof AuthenticatedOperatorAuditRoute
+  '/operator/dashboard': typeof AuthenticatedOperatorDashboardRoute
   '/operator/dokumen': typeof AuthenticatedOperatorDokumenRoute
   '/operator/hasil': typeof AuthenticatedOperatorHasilRoute
   '/operator/nilai-minimal': typeof AuthenticatedOperatorNilaiMinimalRoute
@@ -196,6 +205,7 @@ export interface FileRoutesById {
   '/_authenticated/kartu': typeof AuthenticatedKartuRoute
   '/_authenticated/pendaftaran-saya': typeof AuthenticatedPendaftaranSayaRoute
   '/_authenticated/operator/audit': typeof AuthenticatedOperatorAuditRoute
+  '/_authenticated/operator/dashboard': typeof AuthenticatedOperatorDashboardRoute
   '/_authenticated/operator/dokumen': typeof AuthenticatedOperatorDokumenRoute
   '/_authenticated/operator/hasil': typeof AuthenticatedOperatorHasilRoute
   '/_authenticated/operator/nilai-minimal': typeof AuthenticatedOperatorNilaiMinimalRoute
@@ -219,6 +229,7 @@ export interface FileRouteTypes {
     | '/kartu'
     | '/pendaftaran-saya'
     | '/operator/audit'
+    | '/operator/dashboard'
     | '/operator/dokumen'
     | '/operator/hasil'
     | '/operator/nilai-minimal'
@@ -239,6 +250,7 @@ export interface FileRouteTypes {
     | '/kartu'
     | '/pendaftaran-saya'
     | '/operator/audit'
+    | '/operator/dashboard'
     | '/operator/dokumen'
     | '/operator/hasil'
     | '/operator/nilai-minimal'
@@ -261,6 +273,7 @@ export interface FileRouteTypes {
     | '/_authenticated/kartu'
     | '/_authenticated/pendaftaran-saya'
     | '/_authenticated/operator/audit'
+    | '/_authenticated/operator/dashboard'
     | '/_authenticated/operator/dokumen'
     | '/_authenticated/operator/hasil'
     | '/_authenticated/operator/nilai-minimal'
@@ -374,6 +387,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOperatorAuditRouteImport
       parentRoute: typeof AuthenticatedOperatorRouteRoute
     }
+    '/_authenticated/operator/dashboard': {
+      id: '/_authenticated/operator/dashboard'
+      path: '/dashboard'
+      fullPath: '/operator/dashboard'
+      preLoaderRoute: typeof AuthenticatedOperatorDashboardRouteImport
+      parentRoute: typeof AuthenticatedOperatorRouteRoute
+    }
     '/_authenticated/operator/dokumen': {
       id: '/_authenticated/operator/dokumen'
       path: '/dokumen'
@@ -428,6 +448,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedOperatorRouteRouteChildren {
   AuthenticatedOperatorAuditRoute: typeof AuthenticatedOperatorAuditRoute
+  AuthenticatedOperatorDashboardRoute: typeof AuthenticatedOperatorDashboardRoute
   AuthenticatedOperatorDokumenRoute: typeof AuthenticatedOperatorDokumenRoute
   AuthenticatedOperatorHasilRoute: typeof AuthenticatedOperatorHasilRoute
   AuthenticatedOperatorNilaiMinimalRoute: typeof AuthenticatedOperatorNilaiMinimalRoute
@@ -441,6 +462,7 @@ interface AuthenticatedOperatorRouteRouteChildren {
 const AuthenticatedOperatorRouteRouteChildren: AuthenticatedOperatorRouteRouteChildren =
   {
     AuthenticatedOperatorAuditRoute: AuthenticatedOperatorAuditRoute,
+    AuthenticatedOperatorDashboardRoute: AuthenticatedOperatorDashboardRoute,
     AuthenticatedOperatorDokumenRoute: AuthenticatedOperatorDokumenRoute,
     AuthenticatedOperatorHasilRoute: AuthenticatedOperatorHasilRoute,
     AuthenticatedOperatorNilaiMinimalRoute:

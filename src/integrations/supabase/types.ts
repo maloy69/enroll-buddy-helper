@@ -285,6 +285,7 @@ export type Database = {
           id: string
           nik: string | null
           nisn: string | null
+          npsn: string | null
           parent_email: string | null
           parent_job: string | null
           parent_name: string | null
@@ -321,6 +322,7 @@ export type Database = {
           id?: string
           nik?: string | null
           nisn?: string | null
+          npsn?: string | null
           parent_email?: string | null
           parent_job?: string | null
           parent_name?: string | null
@@ -357,6 +359,7 @@ export type Database = {
           id?: string
           nik?: string | null
           nisn?: string | null
+          npsn?: string | null
           parent_email?: string | null
           parent_job?: string | null
           parent_name?: string | null

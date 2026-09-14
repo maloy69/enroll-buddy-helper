@@ -64,6 +64,13 @@
       "when": 1789394854393,
       "tag": "0008_create_wilayah",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1789396012943,
+      "tag": "0009_add_npsn_to_registrations",
+      "breakpoints": true
     }
   ]
 }
