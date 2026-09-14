@@ -470,6 +470,27 @@ export type Database = {
         }
         Relationships: []
       }
+      wilayah: {
+        Row: {
+          kode: string
+          level: number
+          nama: string
+          parent: string | null
+        }
+        Insert: {
+          kode: string
+          level: number
+          nama: string
+          parent?: string | null
+        }
+        Update: {
+          kode?: string
+          level?: number
+          nama?: string
+          parent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       public_results: {

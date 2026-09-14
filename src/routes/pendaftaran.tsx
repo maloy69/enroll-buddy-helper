@@ -31,6 +31,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { DocumentUploader, type DocRow } from "@/components/DocumentUploader";
 import { DocGuideTour, type TourStep } from "@/components/DocGuideTour";
+import { WilayahCascade } from "@/components/WilayahCascade";
 
 export const Route = createFileRoute("/pendaftaran")({
   ssr: false,
@@ -744,24 +745,31 @@ function PendaftaranPage() {
                 />
               </Field>
             </div>
-            <Field label="Kelurahan/Desa" error={errors["village"]}>
-              <Input value={form["village"] ?? ""} onChange={(e) => set("village", e.target.value)} />
-            </Field>
-            <Field label="Kecamatan" error={errors["district"]}>
-              <Input
-                value={form["district"] ?? ""}
-                onChange={(e) => set("district", e.target.value)}
-              />
-            </Field>
-            <Field label="Kabupaten/Kota" error={errors["city"]}>
-              <Input value={form["city"] ?? ""} onChange={(e) => set("city", e.target.value)} />
-            </Field>
-            <Field label="Provinsi" error={errors["province"]}>
-              <Input
-                value={form["province"] ?? ""}
-                onChange={(e) => set("province", e.target.value)}
-              />
-            </Field>
+            <WilayahCascade
+              nilai={{
+                province: form["province"] ?? "",
+                city: form["city"] ?? "",
+                district: form["district"] ?? "",
+                village: form["village"] ?? "",
+              }}
+              onChange={(patch) => setForm((f) => ({ ...f, ...patch }))}
+              render={({ provinsi, kabupaten, kecamatan, desa }) => (
+                <>
+                  <Field label="Provinsi" error={errors["province"]}>
+                    {provinsi}
+                  </Field>
+                  <Field label="Kabupaten/Kota" error={errors["city"]}>
+                    {kabupaten}
+                  </Field>
+                  <Field label="Kecamatan" error={errors["district"]}>
+                    {kecamatan}
+                  </Field>
+                  <Field label="Kelurahan/Desa" error={errors["village"]}>
+                    {desa}
+                  </Field>
+                </>
+              )}
+            />
             <Field label="Kode pos (opsional)">
               <Input
                 value={form["postal_code"] ?? ""}

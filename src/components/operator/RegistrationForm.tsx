@@ -14,6 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { WilayahCascade } from "@/components/WilayahCascade";
 
 export type RegForm = Record<string, string | null>;
 
@@ -177,18 +178,23 @@ export function RegistrationForm({
               />
             </Field>
           </div>
-          <Field label="Desa/Kelurahan">
-            <Input value={form["village"] ?? ""} onChange={(e) => set("village", e.target.value)} />
-          </Field>
-          <Field label="Kecamatan">
-            <Input value={form["district"] ?? ""} onChange={(e) => set("district", e.target.value)} />
-          </Field>
-          <Field label="Kabupaten/Kota">
-            <Input value={form["city"] ?? ""} onChange={(e) => set("city", e.target.value)} />
-          </Field>
-          <Field label="Provinsi">
-            <Input value={form["province"] ?? ""} onChange={(e) => set("province", e.target.value)} />
-          </Field>
+          <WilayahCascade
+            nilai={{
+              province: form["province"] ?? "",
+              city: form["city"] ?? "",
+              district: form["district"] ?? "",
+              village: form["village"] ?? "",
+            }}
+            onChange={(patch) => setForm((f) => ({ ...f, ...patch }))}
+            render={({ provinsi, kabupaten, kecamatan, desa }) => (
+              <>
+                <Field label="Provinsi">{provinsi}</Field>
+                <Field label="Kabupaten/Kota">{kabupaten}</Field>
+                <Field label="Kecamatan">{kecamatan}</Field>
+                <Field label="Desa/Kelurahan">{desa}</Field>
+              </>
+            )}
+          />
           <Field label="Kode pos">
             <Input value={form["postal_code"] ?? ""} onChange={(e) => set("postal_code", e.target.value)} />
           </Field>
