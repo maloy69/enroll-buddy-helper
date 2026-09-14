@@ -792,6 +792,17 @@ function PendaftaranPage() {
                 placeholder="Nama sekolah sebelumnya"
               />
             </Field>
+            <Field label="NPSN sekolah asal" error={errors["npsn"]}>
+              <Input
+                value={form["npsn"] ?? ""}
+                onChange={(e) => set("npsn", e.target.value.replace(/\D/g, "").slice(0, 8))}
+                inputMode="numeric"
+                placeholder="8 digit, contoh 20326789"
+              />
+              <p className="mt-1 text-xs text-muted-foreground">
+                NPSN tertera di rapor/ijazah SMP, MTs, SMA, SMK, atau MA asal.
+              </p>
+            </Field>
             <Field label="Tahun lulus (opsional)">
               <Input
                 value={form["graduation_year"] ?? ""}
