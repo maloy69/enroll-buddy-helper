@@ -286,6 +286,7 @@ function DaftarPendaftar() {
       province: ambil("province"),
       postal_code: ambil("postal_code"),
       previous_school: ambil("previous_school"),
+      npsn: ambil("npsn"),
       graduation_year: ambil("graduation_year"),
       parent_name: ambil("parent_name"),
       parent_phone: ambil("parent_phone"),

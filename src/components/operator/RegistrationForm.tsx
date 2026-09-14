@@ -205,6 +205,14 @@ export function RegistrationForm({
               onChange={(e) => set("previous_school", e.target.value)}
             />
           </Field>
+          <Field label="NPSN sekolah asal">
+            <Input
+              value={form["npsn"] ?? ""}
+              onChange={(e) => set("npsn", e.target.value.replace(/\D/g, "").slice(0, 8))}
+              inputMode="numeric"
+              placeholder="8 digit"
+            />
+          </Field>
           <Field label="Tahun lulus">
             <Input
               value={form["graduation_year"] ?? ""}
