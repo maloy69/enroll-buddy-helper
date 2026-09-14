@@ -59,6 +59,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-ink-hover: var(--hero-ink-hover);
+  --color-hero-accent: var(--hero-accent);
+  --color-hero-cta: var(--hero-cta);
+  --color-hero-cta-hover: var(--hero-cta-hover);
 }
 
 :root {
@@ -95,6 +100,11 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --hero-ink: oklch(0.27 0.022 140);
+  --hero-ink-hover: oklch(0.33 0.026 140);
+  --hero-accent: oklch(0.74 0.062 150);
+  --hero-cta: oklch(0.42 0.042 142);
+  --hero-cta-hover: oklch(0.34 0.042 142);
 }
 
 .dark {
