@@ -9,9 +9,7 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
-import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-spmb.jpg";
-import logoSekolah from "@/assets/logo-smk.webp";
+import { HeroSpmb } from "@/components/HeroSpmb";
 import { db, fmtWIB, pendaftaranDibuka, type Jadwal } from "@/lib/spmb";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
