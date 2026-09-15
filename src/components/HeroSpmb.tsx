@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, LogIn, Menu, Sparkles, UserPlus, X } from "lucide-react";
-import BoomerangVideoBg from "@/components/BoomerangVideoBg";
+import HeroVideoBg from "@/components/HeroVideoBg";
 import logoSekolah from "@/assets/logo-smk.webp";
-import heroImg from "@/assets/hero-spmb.jpg";
 
-const BG_VIDEO =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_131941_d136af49-e243-493a-be14-6ff3f24e09e6.mp4";
 
 const NAV = [
   { to: "/alur", label: "Alur" },
@@ -32,8 +29,9 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-hero-ink print:hidden">
-      <BoomerangVideoBg src={BG_VIDEO} poster={heroImg} className="absolute inset-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-hero-ink/35 via-hero-ink/20 to-hero-ink/70" />
+      <HeroVideoBg className="absolute inset-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-hero-ink/75 via-hero-ink/55 to-hero-ink/90" />
+      <div className="absolute inset-0 bg-hero-ink/25" />
 
       {/* Navbar */}
       <div className="relative z-20 flex items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-6 md:px-10">
@@ -158,13 +156,13 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
       {/* Hero copy */}
       <div className="relative z-10 px-4 pt-20 sm:px-6 sm:pt-24 md:px-10 md:pt-28">
         <h1
-          className="max-w-4xl text-[2rem] font-bold leading-[0.95] text-white drop-shadow-sm sm:text-4xl md:text-5xl lg:text-[4.75rem] xl:text-[5.25rem]"
+          className="max-w-4xl text-[2rem] font-bold leading-[0.95] text-white [text-shadow:0_2px_10px_rgb(0_0_0_/_0.6)] sm:text-4xl md:text-5xl lg:text-[4.75rem] xl:text-[5.25rem]"
           style={{ letterSpacing: "-0.035em" }}
         >
           Pendaftaran Murid Baru{" "}
           <span className="text-hero-accent">{academicYear || "tahun ajaran baru"}</span>
         </h1>
-        <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
+        <p className="mt-5 max-w-xl text-base text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)] md:text-lg">
           Isi formulir bertahap, unggah dokumen, pantau hasil seleksi, sampai cetak kartu peserta —
           semua dari rumah.
         </p>
@@ -178,7 +176,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
             {schoolName}
           </span>
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-white/80">
+        <p className="mt-3 text-sm leading-relaxed text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)]">
           Satu akun untuk seluruh proses pendaftaran: data diri, berkas, seleksi, hingga daftar
           ulang — tanpa perlu bolak-balik ke sekolah.
         </p>
@@ -199,7 +197,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
       </div>
 
       {/* Bottom-right status */}
-      <div className="absolute bottom-8 right-6 z-10 flex items-center gap-2 rounded-full border border-white/40 bg-white/20 px-4 py-2 backdrop-blur-md md:bottom-10 md:right-10">
+      <div className="absolute bottom-8 right-6 z-10 flex items-center gap-2 rounded-full border border-white/50 bg-hero-ink/60 px-4 py-2 backdrop-blur-md md:bottom-10 md:right-10">
         <span
           className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`}
           aria-hidden="true"
