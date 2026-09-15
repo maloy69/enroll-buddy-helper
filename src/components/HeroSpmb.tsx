@@ -30,8 +30,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-hero-ink print:hidden">
       <HeroVideoBg className="absolute inset-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-hero-ink/75 via-hero-ink/55 to-hero-ink/90" />
-      <div className="absolute inset-0 bg-hero-ink/25" />
+      <div className="absolute inset-0 bg-hero-ink/5" />
 
       {/* Navbar */}
       <div className="relative z-20 flex items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-6 md:px-10">
@@ -159,12 +158,12 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
           className="max-w-4xl text-[2rem] font-bold leading-[0.95] text-white [text-shadow:0_2px_10px_rgb(0_0_0_/_0.6)] sm:text-4xl md:text-5xl lg:text-[4.75rem] xl:text-[5.25rem]"
           style={{ letterSpacing: "-0.035em" }}
         >
-          Pendaftaran Murid Baru{" "}
-          <span className="text-hero-accent">{academicYear || "tahun ajaran baru"}</span>
+          Penerimaan Murid Baru{" "}
+          <span className="text-hero-accent">{academicYear || "Tahun Ajaran Baru"}</span>
         </h1>
         <p className="mt-5 max-w-xl text-base text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)] md:text-lg">
-          Isi formulir bertahap, unggah dokumen, pantau hasil seleksi, sampai cetak kartu peserta —
-          semua dari rumah.
+          Pendaftaran dilaksanakan secara daring, meliputi pengisian formulir, pengunggahan
+          berkas, hingga pengumuman hasil seleksi.
         </p>
       </div>
 
@@ -177,8 +176,8 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
           </span>
         </div>
         <p className="mt-3 text-sm leading-relaxed text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)]">
-          Satu akun untuk seluruh proses pendaftaran: data diri, berkas, seleksi, hingga daftar
-          ulang — tanpa perlu bolak-balik ke sekolah.
+          Seluruh tahapan penerimaan murid baru — pengisian data, verifikasi berkas, seleksi,
+          hingga daftar ulang — dapat diselesaikan melalui satu akun.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
@@ -191,7 +190,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
             to="/alur"
             className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-3 text-sm font-semibold text-hero-ink backdrop-blur-md transition-colors hover:bg-white/90"
           >
-            Lihat Alur
+            Alur Pendaftaran
           </Link>
         </div>
       </div>
