@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, LogIn, Menu, Sparkles, UserPlus, X } from "lucide-react";
-import BoomerangVideoBg from "@/components/BoomerangVideoBg";
+import HeroVideoBg from "@/components/HeroVideoBg";
 import logoSekolah from "@/assets/logo-smk.webp";
-import heroImg from "@/assets/hero-spmb.jpg";
 
-const BG_VIDEO =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260511_131941_d136af49-e243-493a-be14-6ff3f24e09e6.mp4";
 
 const NAV = [
   { to: "/alur", label: "Alur" },
