@@ -1,3 +1,5 @@
+// ============= Full file contents =============
+
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, LogIn, Menu, Sparkles, UserPlus, X } from "lucide-react";
@@ -17,6 +19,9 @@ type Props = {
   buka: boolean;
 };
 
+const SHADOW_KUAT = "[text-shadow:0_1px_2px_rgb(0_0_0_/_0.9),0_2px_6px_rgb(0_0_0_/_0.75),0_4px_18px_rgb(0_0_0_/_0.6)]";
+const SHADOW_JUDUL = "[text-shadow:0_2px_4px_rgb(0_0_0_/_0.9),0_4px_12px_rgb(0_0_0_/_0.7),0_8px_28px_rgb(0_0_0_/_0.55)]";
+
 export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -28,12 +33,14 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
   }, [menuOpen]);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-hero-ink print:hidden">
+    <section className="relative flex w-full min-h-[35svh] flex-col overflow-hidden bg-hero-ink print:hidden">
       <HeroVideoBg className="absolute inset-0" />
       <div className="absolute inset-0 bg-hero-ink/5" />
+      {/* Scrim gradien hanya di area bawah agar tulisan menyolok, video tetap terang */}
+      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-hero-ink/80 via-hero-ink/40 to-transparent" />
 
       {/* Navbar */}
-      <div className="relative z-20 flex items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-6 md:px-10">
+      <div className="relative z-20 flex items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 md:px-10">
         <Link to="/" className="flex items-center gap-2">
           <img
             src={logoSekolah}
@@ -42,7 +49,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
             height={40}
             className="size-10 object-contain drop-shadow"
           />
-          <span className="text-base font-bold tracking-tight text-white drop-shadow sm:text-lg">
+          <span className={`text-base font-bold tracking-tight text-white drop-shadow sm:text-lg ${SHADOW_JUDUL}`}>
             SPMB Online
           </span>
         </Link>
@@ -152,58 +159,58 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
         </div>
       </div>
 
-      {/* Hero copy */}
-      <div className="relative z-10 px-4 pt-20 sm:px-6 sm:pt-24 md:px-10 md:pt-28">
+      {/* Hero copy — seluruh blok berada dalam alur, ringkas agar muat di tinggi 35% */}
+      <div className="relative z-10 flex flex-1 flex-col justify-center gap-3 px-4 pb-6 pt-3 sm:px-6 md:px-10 md:gap-4">
         <h1
-          className="max-w-4xl text-[2rem] font-bold leading-[0.95] text-white [text-shadow:0_2px_10px_rgb(0_0_0_/_0.6)] sm:text-4xl md:text-5xl lg:text-[4.75rem] xl:text-[5.25rem]"
+          className={`max-w-4xl text-2xl font-bold leading-[1.02] text-white sm:text-3xl md:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] ${SHADOW_JUDUL}`}
           style={{ letterSpacing: "-0.035em" }}
         >
           Penerimaan Murid Baru{" "}
           <span className="text-hero-accent">{academicYear || "Tahun Ajaran Baru"}</span>
         </h1>
-        <p className="mt-5 max-w-xl text-base text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)] md:text-lg">
+        <p className={`max-w-xl text-sm text-white sm:text-base md:text-lg ${SHADOW_KUAT}`}>
           Pendaftaran dilaksanakan secara daring, meliputi pengisian formulir, pengunggahan
           berkas, hingga pengumuman hasil seleksi.
         </p>
-      </div>
 
-      {/* Bottom-left block */}
-      <div className="relative z-10 mt-16 px-4 pb-28 sm:px-6 md:px-10 lg:absolute lg:bottom-10 lg:left-10 lg:mt-0 lg:max-w-md lg:px-0 lg:pb-0">
-        <div className="flex items-center gap-2">
-          <Sparkles className="size-4 text-hero-accent" />
-          <span className="text-sm font-semibold uppercase tracking-wide text-white">
-            {schoolName}
-          </span>
-        </div>
-        <p className="mt-3 text-sm leading-relaxed text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)]">
-          Seluruh tahapan penerimaan murid baru — pengisian data, verifikasi berkas, seleksi,
-          hingga daftar ulang — dapat diselesaikan melalui satu akun.
-        </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link
-            to="/pendaftaran"
-            className="inline-flex items-center gap-2 rounded-full bg-hero-cta px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-hero-cta-hover"
-          >
-            Mulai Pendaftaran <ArrowRight className="size-4" />
-          </Link>
-          <Link
-            to="/alur"
-            className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-3 text-sm font-semibold text-hero-ink backdrop-blur-md transition-colors hover:bg-white/90"
-          >
-            Alur Pendaftaran
-          </Link>
-        </div>
-      </div>
+        <div className="mt-2 flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-md">
+            <div className="flex items-center gap-2">
+              <Sparkles className="size-4 shrink-0 text-hero-accent" />
+              <span className={`text-xs font-semibold uppercase tracking-wide text-white sm:text-sm ${SHADOW_KUAT}`}>
+                {schoolName}
+              </span>
+            </div>
+            <p className={`mt-2 text-xs leading-relaxed text-white sm:text-sm ${SHADOW_KUAT}`}>
+              Seluruh tahapan penerimaan murid baru — pengisian data, verifikasi berkas, seleksi,
+              hingga daftar ulang — dapat diselesaikan melalui satu akun.
+            </p>
+          </div>
 
-      {/* Bottom-right status */}
-      <div className="absolute bottom-8 right-6 z-10 flex items-center gap-2 rounded-full border border-white/50 bg-hero-ink/60 px-4 py-2 backdrop-blur-md md:bottom-10 md:right-10">
-        <span
-          className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`}
-          aria-hidden="true"
-        />
-        <span className="text-xs font-semibold text-white">
-          {buka ? "Pendaftaran dibuka" : "Pendaftaran belum dibuka"}
-        </span>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              to="/pendaftaran"
+              className="inline-flex items-center gap-2 rounded-full bg-hero-cta px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-hero-cta-hover"
+            >
+              Mulai Pendaftaran <ArrowRight className="size-4" />
+            </Link>
+            <Link
+              to="/alur"
+              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-3 text-sm font-semibold text-hero-ink backdrop-blur-md transition-colors hover:bg-white/90"
+            >
+              Alur Pendaftaran
+            </Link>
+            <div className="flex items-center gap-2 rounded-full border border-white/50 bg-hero-ink/70 px-4 py-2.5 backdrop-blur-md">
+              <span
+                className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`}
+                aria-hidden="true"
+              />
+              <span className={`text-xs font-semibold text-white ${SHADOW_KUAT}`}>
+                {buka ? "Pendaftaran dibuka" : "Pendaftaran belum dibuka"}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
