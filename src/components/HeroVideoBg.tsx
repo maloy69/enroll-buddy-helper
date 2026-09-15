@@ -66,8 +66,12 @@ export default function HeroVideoBg({ className }: Props) {
   }, [src]);
 
   return (
-    <div className={className} aria-hidden="true">
-      <img src={heroPoster.url} alt="" className="absolute inset-0 size-full object-cover" />
+    <div className={`w-full ${className ?? ""}`} aria-hidden="true">
+      <img
+        src={heroPoster.url}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       {src && (
         <video
           ref={videoRef}
@@ -76,7 +80,7 @@ export default function HeroVideoBg({ className }: Props) {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 size-full object-cover transition-opacity ease-in-out"
+          className="absolute inset-0 h-full w-full object-cover transition-opacity ease-in-out"
           style={{ opacity: visible ? 1 : 0, transitionDuration: `${FADE_MS}ms` }}
         />
       )}
