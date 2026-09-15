@@ -156,13 +156,13 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
       {/* Hero copy */}
       <div className="relative z-10 px-4 pt-20 sm:px-6 sm:pt-24 md:px-10 md:pt-28">
         <h1
-          className="max-w-4xl text-[2rem] font-bold leading-[0.95] text-white drop-shadow-sm sm:text-4xl md:text-5xl lg:text-[4.75rem] xl:text-[5.25rem]"
+          className="max-w-4xl text-[2rem] font-bold leading-[0.95] text-white [text-shadow:0_2px_10px_rgb(0_0_0_/_0.6)] sm:text-4xl md:text-5xl lg:text-[4.75rem] xl:text-[5.25rem]"
           style={{ letterSpacing: "-0.035em" }}
         >
           Pendaftaran Murid Baru{" "}
           <span className="text-hero-accent">{academicYear || "tahun ajaran baru"}</span>
         </h1>
-        <p className="mt-5 max-w-xl text-base text-white/85 md:text-lg">
+        <p className="mt-5 max-w-xl text-base text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)] md:text-lg">
           Isi formulir bertahap, unggah dokumen, pantau hasil seleksi, sampai cetak kartu peserta —
           semua dari rumah.
         </p>
@@ -176,7 +176,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
             {schoolName}
           </span>
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-white/80">
+        <p className="mt-3 text-sm leading-relaxed text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0_/_0.55)]">
           Satu akun untuk seluruh proses pendaftaran: data diri, berkas, seleksi, hingga daftar
           ulang — tanpa perlu bolak-balik ke sekolah.
         </p>
@@ -197,7 +197,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
       </div>
 
       {/* Bottom-right status */}
-      <div className="absolute bottom-8 right-6 z-10 flex items-center gap-2 rounded-full border border-white/40 bg-white/20 px-4 py-2 backdrop-blur-md md:bottom-10 md:right-10">
+      <div className="absolute bottom-8 right-6 z-10 flex items-center gap-2 rounded-full border border-white/50 bg-hero-ink/60 px-4 py-2 backdrop-blur-md md:bottom-10 md:right-10">
         <span
           className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`}
           aria-hidden="true"
