@@ -29,8 +29,9 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-hero-ink print:hidden">
-      <BoomerangVideoBg src={BG_VIDEO} poster={heroImg} className="absolute inset-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-hero-ink/35 via-hero-ink/20 to-hero-ink/70" />
+      <HeroVideoBg className="absolute inset-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-hero-ink/75 via-hero-ink/55 to-hero-ink/90" />
+      <div className="absolute inset-0 bg-hero-ink/25" />
 
       {/* Navbar */}
       <div className="relative z-20 flex items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-6 md:px-10">
