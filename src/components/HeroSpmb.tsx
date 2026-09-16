@@ -19,8 +19,8 @@ type Props = {
   buka: boolean;
 };
 
-const SHADOW_KUAT = "[text-shadow:0_1px_2px_rgb(0_0_0_/_0.9),0_2px_6px_rgb(0_0_0_/_0.75),0_4px_18px_rgb(0_0_0_/_0.6)]";
-const SHADOW_JUDUL = "[text-shadow:0_2px_4px_rgb(0_0_0_/_0.9),0_4px_12px_rgb(0_0_0_/_0.7),0_8px_28px_rgb(0_0_0_/_0.55)]";
+const SHADOW_KUAT = "[text-shadow:0_1px_2px_rgb(255_255_255_/_0.95),0_2px_6px_rgb(255_255_255_/_0.85),0_4px_14px_rgb(255_255_255_/_0.7)]";
+const SHADOW_JUDUL = "[text-shadow:0_1px_2px_rgb(255_255_255_/_0.95),0_2px_8px_rgb(255_255_255_/_0.85),0_6px_22px_rgb(255_255_255_/_0.75)]";
 
 export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,9 +35,10 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
   return (
     <section className="relative flex w-full min-h-[35svh] flex-col overflow-hidden bg-hero-ink print:hidden">
       <HeroVideoBg className="absolute inset-0" />
-      <div className="absolute inset-0 bg-hero-ink/5" />
-      {/* Scrim gradien hanya di area bawah agar tulisan menyolok, video tetap terang */}
-      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-hero-ink/80 via-hero-ink/40 to-transparent" />
+      {/* Overlay biru langit keputihan 55% menutupi movie */}
+      <div className="absolute inset-0 bg-hero-sky/55" />
+      {/* Scrim putih tipis di area bawah agar tulisan tetap menyolok */}
+      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-white/55 via-white/25 to-transparent" />
 
       {/* Navbar */}
       <div className="relative z-20 flex items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 md:px-10">
