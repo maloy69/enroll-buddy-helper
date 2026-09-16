@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, LogIn, Menu, Sparkles, UserPlus, X } from "lucide-react";
+import { ArrowRight, LogIn, Menu, UserPlus, X } from "lucide-react";
 import HeroVideoBg from "@/components/HeroVideoBg";
 import logoSekolah from "@/assets/logo-smk.webp";
 
