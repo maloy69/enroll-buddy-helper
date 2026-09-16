@@ -72,7 +72,7 @@ function Beranda() {
         <div className="flex items-center gap-2">
           <Sparkles className="size-4 shrink-0 text-primary" />
           <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            {schoolName}
+            {settings?.school_name ?? "SMK Muhammadiyah 1 Paguyangan"}
           </span>
         </div>
         <p className="mt-3 max-w-3xl text-lg font-medium leading-relaxed">
