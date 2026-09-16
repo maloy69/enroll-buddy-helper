@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, LogIn, Menu, Sparkles, UserPlus, X } from "lucide-react";
+import { ArrowRight, LogIn, Menu, UserPlus, X } from "lucide-react";
 import HeroVideoBg from "@/components/HeroVideoBg";
 import logoSekolah from "@/assets/logo-smk.webp";
 
@@ -168,26 +168,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
           Penerimaan Murid Baru{" "}
           <span className="text-hero-accent">{academicYear || "Tahun Ajaran Baru"}</span>
         </h1>
-        <p className={`max-w-xl text-sm text-white sm:text-base md:text-lg ${SHADOW_KUAT}`}>
-          Pendaftaran dilaksanakan secara daring, meliputi pengisian formulir, pengunggahan
-          berkas, hingga pengumuman hasil seleksi.
-        </p>
-
-        <div className="mt-2 flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-md">
-            <div className="flex items-center gap-2">
-              <Sparkles className="size-4 shrink-0 text-hero-accent" />
-              <span className={`text-xs font-semibold uppercase tracking-wide text-white sm:text-sm ${SHADOW_KUAT}`}>
-                {schoolName}
-              </span>
-            </div>
-            <p className={`mt-2 text-xs leading-relaxed text-white sm:text-sm ${SHADOW_KUAT}`}>
-              Seluruh tahapan penerimaan murid baru — pengisian data, verifikasi berkas, seleksi,
-              hingga daftar ulang — dapat diselesaikan melalui satu akun.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="mt-2 flex flex-wrap items-center gap-3">
             <Link
               to="/pendaftaran"
               className="inline-flex items-center gap-2 rounded-full bg-hero-cta px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-hero-cta-hover"
@@ -209,7 +190,6 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
                 {buka ? "Pendaftaran dibuka" : "Pendaftaran belum dibuka"}
               </span>
             </div>
-          </div>
         </div>
       </div>
     </section>
