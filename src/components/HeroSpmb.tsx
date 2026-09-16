@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, LogIn, Menu, UserPlus, X } from "lucide-react";
+import { ArrowRight, Check, LogIn, Menu, UserPlus, X } from "lucide-react";
 import HeroVideoBg from "@/components/HeroVideoBg";
 import logoSekolah from "@/assets/logo-smk.webp";
 
@@ -159,38 +159,47 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
         </div>
       </div>
 
-      {/* Hero copy — seluruh blok berada dalam alur, ringkas agar muat di tinggi 35% */}
-      <div className="relative z-10 flex flex-1 flex-col justify-center gap-3 px-4 pb-6 pt-3 sm:px-6 md:px-10 md:gap-4">
-        <h1
-          className={`max-w-4xl text-2xl font-bold leading-[1.02] text-white sm:text-3xl md:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] ${SHADOW_JUDUL}`}
-          style={{ letterSpacing: "-0.035em" }}
-        >
-          Penerimaan Murid Baru{" "}
-          <span className="text-hero-accent">{academicYear || "Tahun Ajaran Baru"}</span>
-        </h1>
-        <div className="mt-2 flex flex-wrap items-center gap-3">
+      {/* Perbandingan dua susunan hero dalam tinggi yang sama */}
+      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-2">
+        <article className="relative flex min-w-0 flex-col justify-end border-r border-white/30 px-3 pb-5 sm:px-6 md:px-10 md:pb-7">
+          <span className={`mb-2 text-[10px] font-bold uppercase tracking-wide text-white/90 sm:text-xs ${SHADOW_KUAT}`}>
+            Versi formal
+          </span>
+          <h1 className={`max-w-2xl text-lg font-bold leading-tight text-white sm:text-2xl md:text-3xl lg:text-4xl ${SHADOW_JUDUL}`}>
+            Penerimaan Murid Baru{" "}
+            <span className="text-hero-accent">{academicYear || "Tahun Ajaran Baru"}</span>
+          </h1>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
             <Link
               to="/pendaftaran"
-              className="inline-flex items-center gap-2 rounded-full bg-hero-cta px-5 py-3 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-hero-cta-hover"
+              className="inline-flex items-center gap-1.5 rounded-full bg-hero-cta px-3 py-2 text-[11px] font-semibold text-white shadow-lg transition-colors hover:bg-hero-cta-hover sm:px-5 sm:py-2.5 sm:text-sm"
             >
-              Mulai Pendaftaran <ArrowRight className="size-4" />
+              Mulai Pendaftaran <ArrowRight className="size-3.5" />
             </Link>
-            <Link
-              to="/alur"
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-5 py-3 text-sm font-semibold text-hero-ink backdrop-blur-md transition-colors hover:bg-white/90"
-            >
-              Alur Pendaftaran
-            </Link>
-            <div className="flex items-center gap-2 rounded-full border border-white/50 bg-hero-ink/70 px-4 py-2.5 backdrop-blur-md">
-              <span
-                className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`}
-                aria-hidden="true"
-              />
-              <span className={`text-xs font-semibold text-white ${SHADOW_KUAT}`}>
-                {buka ? "Pendaftaran dibuka" : "Pendaftaran belum dibuka"}
-              </span>
-            </div>
-        </div>
+            <span className={`hidden items-center gap-2 text-xs font-semibold text-white sm:flex ${SHADOW_KUAT}`}>
+              <span className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`} />
+              {buka ? "Dibuka" : "Belum dibuka"}
+            </span>
+          </div>
+        </article>
+
+        <article className="relative flex min-w-0 flex-col items-center justify-end px-3 pb-5 text-center sm:px-6 md:px-10 md:pb-7">
+          <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-hero-accent px-2 py-1 text-[9px] font-bold text-hero-ink shadow-lg sm:right-4 sm:top-3 sm:px-3 sm:text-[10px]">
+            <Check className="size-3" /> Pilihan terbaik
+          </span>
+          <h2 className={`text-xl font-extrabold leading-none text-white sm:text-3xl md:text-4xl lg:text-5xl ${SHADOW_JUDUL}`}>
+            SPMB {academicYear || "2026/2027"}
+          </h2>
+          <p className={`mt-1 text-[9px] font-bold uppercase tracking-wide text-hero-accent sm:text-xs ${SHADOW_KUAT}`}>
+            Penerimaan Murid Baru
+          </p>
+          <Link
+            to="/pendaftaran"
+            className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-hero-cta px-4 py-2 text-[11px] font-bold text-white shadow-lg transition-colors hover:bg-hero-cta-hover sm:px-7 sm:py-2.5 sm:text-sm"
+          >
+            Daftar Sekarang <ArrowRight className="size-3.5" />
+          </Link>
+        </article>
       </div>
     </section>
   );
