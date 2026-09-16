@@ -190,7 +190,6 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
                 {buka ? "Pendaftaran dibuka" : "Pendaftaran belum dibuka"}
               </span>
             </div>
-          </div>
         </div>
       </div>
     </section>
