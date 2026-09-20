@@ -15,6 +15,12 @@ import { db, fmtWIB, pendaftaranDibuka, type Jadwal } from "@/lib/spmb";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  DEFAULT_HERO_CONTRAST,
+  isHeroOverlayOpacity,
+  isHeroTextTone,
+} from "@/lib/hero-contrast";
+import type { Tables } from "@/integrations/supabase/types";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,7 +52,7 @@ function Beranda() {
     queryKey: ["settings"],
     queryFn: async () => {
       const { data } = await db.from("settings").select("*").maybeSingle();
-      return data as (Jadwal & { school_name: string; academic_year: string }) | null;
+      return data as (Jadwal & Tables<"settings">) | null;
     },
   });
   const { data: majors } = useQuery({
@@ -66,6 +72,16 @@ function Beranda() {
         schoolName={settings?.school_name ?? "SMK Muhammadiyah 1 Paguyangan"}
         academicYear={settings?.academic_year ?? ""}
         buka={buka}
+        textTone={
+          isHeroTextTone(settings?.hero_text_tone)
+            ? settings.hero_text_tone
+            : DEFAULT_HERO_CONTRAST.textTone
+        }
+        overlayOpacity={
+          isHeroOverlayOpacity(settings?.hero_overlay_opacity)
+            ? settings.hero_overlay_opacity
+            : DEFAULT_HERO_CONTRAST.overlayOpacity
+        }
       />
 
       <section className="mx-auto max-w-6xl px-4 pt-14">

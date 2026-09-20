@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
-import { Plus, Save, Trash2 } from "lucide-react";
+import { Bot, LoaderCircle, Plus, Save, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { catatAudit, db, fromLocalInput, toLocalInput } from "@/lib/spmb";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { analyzeAndApplyHeroContrast } from "@/lib/hero-contrast.functions";
+import {
+  DEFAULT_HERO_CONTRAST,
+  isHeroOverlayOpacity,
+  isHeroTextTone,
+  minimumContrastRatio,
+} from "@/lib/hero-contrast";
 
 export const Route = createFileRoute("/_authenticated/operator/pengaturan")({
   component: PengaturanPage,
@@ -35,6 +43,8 @@ type Criteria = {
 function PengaturanPage() {
   const [jadwal, setJadwal] = useState<Record<string, string>>({});
   const [profil, setProfil] = useState<Record<string, string>>({});
+  const [analyzingContrast, setAnalyzingContrast] = useState(false);
+  const analyzeContrast = useServerFn(analyzeAndApplyHeroContrast);
 
   const { data: settings, refetch: refetchSettings } = useQuery({
     queryKey: ["settings"],
@@ -80,6 +90,28 @@ function PengaturanPage() {
   const totalBobot = (criteria ?? [])
     .filter((c) => c.active)
     .reduce((a, c) => a + Number(c.weight), 0);
+
+  const activeTone = isHeroTextTone(settings?.["hero_text_tone"])
+    ? settings["hero_text_tone"]
+    : DEFAULT_HERO_CONTRAST.textTone;
+  const activeOpacity = isHeroOverlayOpacity(settings?.["hero_overlay_opacity"])
+    ? settings["hero_overlay_opacity"]
+    : DEFAULT_HERO_CONTRAST.overlayOpacity;
+
+  async function jalankanAnalisisKontras() {
+    setAnalyzingContrast(true);
+    try {
+      const result = await analyzeContrast({ data: {} });
+      toast.success(
+        `Kontras diterapkan: overlay ${result.overlayOpacity}% · rasio ${result.contrastRatio}:1`,
+      );
+      await refetchSettings();
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Analisis kontras gagal.");
+    } finally {
+      setAnalyzingContrast(false);
+    }
+  }
 
   async function simpanJadwal() {
     const open = fromLocalInput(jadwal["registration_open_at"] ?? "");
@@ -230,6 +262,57 @@ function PengaturanPage() {
             <Button onClick={() => void simpanJadwal()}>
               <Save className="size-4" /> Simpan Pengaturan
             </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Bot className="size-5 text-primary" /> Kontras Hero Otomatis
+          </CardTitle>
+          <CardDescription>
+            Lovable AI menilai poster video dan langsung menerapkan kombinasi yang lolos WCAG AA.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid gap-3 text-sm sm:grid-cols-3">
+            <div className="rounded-md border p-3">
+              <p className="text-muted-foreground">Warna tulisan</p>
+              <p className="mt-1 font-semibold">
+                {activeTone === "dark-green" ? "Hijau tua" : "Hampir hitam"}
+              </p>
+            </div>
+            <div className="rounded-md border p-3">
+              <p className="text-muted-foreground">Opasitas overlay</p>
+              <p className="mt-1 font-semibold">{activeOpacity}%</p>
+            </div>
+            <div className="rounded-md border p-3">
+              <p className="text-muted-foreground">Batas kontras terburuk</p>
+              <p className="mt-1 font-semibold">
+                {minimumContrastRatio(activeTone, activeOpacity).toFixed(2)}:1
+              </p>
+            </div>
+          </div>
+          {settings?.["hero_contrast_reason"] && (
+            <p className="text-sm text-muted-foreground">
+              {settings["hero_contrast_reason"]}
+            </p>
+          )}
+          <div className="flex flex-wrap items-center gap-3">
+            <Button onClick={() => void jalankanAnalisisKontras()} disabled={analyzingContrast}>
+              {analyzingContrast ? (
+                <LoaderCircle className="size-4 animate-spin" />
+              ) : (
+                <Bot className="size-4" />
+              )}
+              {analyzingContrast ? "Menganalisis…" : "Analisis & Terapkan"}
+            </Button>
+            <span className="text-xs text-muted-foreground">
+              {settings?.["hero_contrast_analyzed_at"]
+                ? `Terakhir dianalisis ${new Date(settings["hero_contrast_analyzed_at"]).toLocaleString("id-ID")}`
+                : "Belum pernah dianalisis"}
+            </span>
           </div>
         </CardContent>
       </Card>

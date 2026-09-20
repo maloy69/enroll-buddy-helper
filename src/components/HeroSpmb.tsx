@@ -5,6 +5,13 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, LogIn, Menu, UserPlus, X } from "lucide-react";
 import HeroVideoBg from "@/components/HeroVideoBg";
 import logoSekolah from "@/assets/logo-smk.webp";
+import {
+  DEFAULT_HERO_CONTRAST,
+  HERO_OVERLAY_CLASSES,
+  HERO_TEXT_CLASSES,
+  type HeroOverlayOpacity,
+  type HeroTextTone,
+} from "@/lib/hero-contrast";
 
 
 const NAV = [
@@ -17,13 +24,22 @@ type Props = {
   schoolName: string;
   academicYear: string;
   buka: boolean;
+  textTone?: HeroTextTone;
+  overlayOpacity?: HeroOverlayOpacity;
 };
 
-const SHADOW_KUAT = "[text-shadow:0_1px_2px_rgb(255_255_255_/_0.95),0_2px_6px_rgb(255_255_255_/_0.85),0_4px_14px_rgb(255_255_255_/_0.7)]";
-const SHADOW_JUDUL = "[text-shadow:0_1px_2px_rgb(255_255_255_/_0.95),0_2px_8px_rgb(255_255_255_/_0.85),0_6px_22px_rgb(255_255_255_/_0.75)]";
+const SHADOW_KUAT = "[text-shadow:0_1px_2px_rgb(255_255_255_/_0.9),0_2px_8px_rgb(255_255_255_/_0.75)]";
+const SHADOW_JUDUL = "[text-shadow:0_1px_2px_rgb(255_255_255_/_0.95),0_3px_12px_rgb(255_255_255_/_0.8)]";
 
-export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
+export function HeroSpmb({
+  schoolName,
+  academicYear,
+  buka,
+  textTone = DEFAULT_HERO_CONTRAST.textTone,
+  overlayOpacity = DEFAULT_HERO_CONTRAST.overlayOpacity,
+}: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const textClass = HERO_TEXT_CLASSES[textTone];
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -36,7 +52,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
     <section className="relative flex w-full min-h-[35svh] flex-col overflow-hidden bg-hero-ink print:hidden">
       <HeroVideoBg className="absolute inset-0" />
       {/* Overlay biru langit keputihan 55% menutupi movie */}
-      <div className="absolute inset-0 bg-hero-sky/55" />
+      <div className={`absolute inset-0 ${HERO_OVERLAY_CLASSES[overlayOpacity]}`} />
       {/* Scrim putih tipis di area bawah agar tulisan tetap menyolok */}
       <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-white/55 via-white/25 to-transparent" />
 
@@ -50,7 +66,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
             height={40}
             className="size-10 object-contain drop-shadow"
           />
-          <span className={`text-base font-bold tracking-tight text-white drop-shadow sm:text-lg ${SHADOW_JUDUL}`}>
+          <span className={`text-base font-bold tracking-tight sm:text-lg ${textClass} ${SHADOW_JUDUL}`}>
             SPMB Online
           </span>
         </Link>
@@ -163,10 +179,10 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
       {/* Perbandingan dua susunan hero dalam tinggi yang sama */}
       <div className="relative z-10 grid min-h-0 flex-1 grid-cols-2">
         <article className="relative flex min-w-0 flex-col justify-end border-r border-white/30 px-3 pb-5 sm:px-6 md:px-10 md:pb-7">
-          <span className={`mb-2 text-[10px] font-bold uppercase tracking-wide text-white/90 sm:text-xs ${SHADOW_KUAT}`}>
+          <span className={`mb-2 text-[10px] font-bold uppercase tracking-wide sm:text-xs ${textClass} ${SHADOW_KUAT}`}>
             Versi formal
           </span>
-          <h1 className={`max-w-2xl text-lg font-bold leading-tight text-white sm:text-2xl md:text-3xl lg:text-4xl ${SHADOW_JUDUL}`}>
+          <h1 className={`max-w-2xl text-lg font-bold leading-tight sm:text-2xl md:text-3xl lg:text-4xl ${textClass} ${SHADOW_JUDUL}`}>
             Penerimaan Murid Baru{" "}
             <span className="text-hero-accent">{academicYear || "Tahun Ajaran Baru"}</span>
           </h1>
@@ -177,7 +193,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
             >
               Mulai Pendaftaran <ArrowRight className="size-3.5" />
             </Link>
-            <span className={`hidden items-center gap-2 text-xs font-semibold text-white sm:flex ${SHADOW_KUAT}`}>
+            <span className={`hidden items-center gap-2 text-xs font-semibold sm:flex ${textClass} ${SHADOW_KUAT}`}>
               <span className={`size-2 rounded-full ${buka ? "bg-hero-accent" : "bg-white/60"}`} />
               {buka ? "Dibuka" : "Belum dibuka"}
             </span>
@@ -188,7 +204,7 @@ export function HeroSpmb({ schoolName, academicYear, buka }: Props) {
           <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-hero-accent px-2 py-1 text-[9px] font-bold text-hero-ink shadow-lg sm:right-4 sm:top-3 sm:px-3 sm:text-[10px]">
             <Check className="size-3" /> Pilihan terbaik
           </span>
-          <h2 className={`text-xl font-extrabold leading-none text-white sm:text-3xl md:text-4xl lg:text-5xl ${SHADOW_JUDUL}`}>
+          <h2 className={`text-xl font-extrabold leading-none sm:text-3xl md:text-4xl lg:text-5xl ${textClass} ${SHADOW_JUDUL}`}>
             SPMB {academicYear || "2026/2027"}
           </h2>
           <p className={`mt-1 text-[9px] font-bold uppercase tracking-wide text-hero-accent sm:text-xs ${SHADOW_KUAT}`}>
