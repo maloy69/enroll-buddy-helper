@@ -78,6 +78,13 @@
       "when": 1789396389193,
       "tag": "0010_allow_edit_until_verified",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1789867968898,
+      "tag": "0011_add_hero_contrast_settings",
+      "breakpoints": true
     }
   ]
 }

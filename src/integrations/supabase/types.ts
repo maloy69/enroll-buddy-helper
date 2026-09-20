@@ -413,6 +413,10 @@ export type Database = {
           contact_email: string | null
           contact_phone: string | null
           created_at: string
+          hero_contrast_analyzed_at: string | null
+          hero_contrast_reason: string | null
+          hero_overlay_opacity: number
+          hero_text_tone: string
           id: boolean
           registration_close_at: string | null
           registration_open_at: string | null
@@ -428,6 +432,10 @@ export type Database = {
           contact_email?: string | null
           contact_phone?: string | null
           created_at?: string
+          hero_contrast_analyzed_at?: string | null
+          hero_contrast_reason?: string | null
+          hero_overlay_opacity?: number
+          hero_text_tone?: string
           id?: boolean
           registration_close_at?: string | null
           registration_open_at?: string | null
@@ -443,6 +451,10 @@ export type Database = {
           contact_email?: string | null
           contact_phone?: string | null
           created_at?: string
+          hero_contrast_analyzed_at?: string | null
+          hero_contrast_reason?: string | null
+          hero_overlay_opacity?: number
+          hero_text_tone?: string
           id?: boolean
           registration_close_at?: string | null
           registration_open_at?: string | null
