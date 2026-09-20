@@ -20,6 +20,7 @@ import {
   isHeroOverlayOpacity,
   isHeroTextTone,
 } from "@/lib/hero-contrast";
+import type { Tables } from "@/integrations/supabase/types";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,7 +52,7 @@ function Beranda() {
     queryKey: ["settings"],
     queryFn: async () => {
       const { data } = await db.from("settings").select("*").maybeSingle();
-      return data as (Jadwal & { school_name: string; academic_year: string }) | null;
+      return data as (Jadwal & Tables<"settings">) | null;
     },
   });
   const { data: majors } = useQuery({
