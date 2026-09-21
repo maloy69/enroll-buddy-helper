@@ -201,7 +201,7 @@ export function HeroSpmb({
         </article>
 
         <article className="relative flex min-w-0 flex-col items-center justify-end px-3 pb-5 text-center sm:px-6 md:px-10 md:pb-7">
-          <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-hero-accent px-2 py-1 text-[9px] font-bold text-hero-ink shadow-lg sm:right-4 sm:top-3 sm:px-3 sm:text-[10px]">
+          <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-hero-choice px-2 py-1 text-[9px] font-bold text-hero-ink shadow-lg sm:right-4 sm:top-3 sm:px-3 sm:text-[10px]">
             <Check className="size-3" /> Pilihan terbaik
           </span>
           <h2 className={`text-xl font-extrabold leading-none sm:text-3xl md:text-4xl lg:text-5xl ${textClass} ${SHADOW_JUDUL}`}>
